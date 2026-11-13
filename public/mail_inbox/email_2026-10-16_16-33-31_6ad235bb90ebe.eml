@@ -1,0 +1,26 @@
+Date: Fri, 16 Oct 2026 21:33:31 +0700
+To: sitinurfadillahhh07@gmail.com
+From: NNACOSA <noreply@nnacosa.com>
+Subject: =?UTF-8?Q?NNACOSA_=E2=80=94_Tes_Koneksi_SMTP_Berhasil?=
+Message-ID: <UslWVrTzRNGUDkFxgLVtOQgtXnV5fY4rrAHfDKymFQ@LAPTOP-NUQGV6IM>
+X-Mailer: PHPMailer 7.1.1 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="b1=_UslWVrTzRNGUDkFxgLVtOQgtXnV5fY4rrAHfDKymFQ"
+Content-Transfer-Encoding: 8bit
+
+--b1=_UslWVrTzRNGUDkFxgLVtOQgtXnV5fY4rrAHfDKymFQ
+Content-Type: text/plain; charset=us-ascii
+
+Koneksi SMTP NNACOSA Berhasil!
+Email pengujian ini mengonfirmasi konfigurasi SMTP PHPMailer siap digunakan.
+Waktu: 2026-10-16 21:33:31 WIB
+
+--b1=_UslWVrTzRNGUDkFxgLVtOQgtXnV5fY4rrAHfDKymFQ
+Content-Type: text/html; charset=us-ascii
+
+<h3>Koneksi SMTP NNACOSA Berhasil!</h3><p>Email pengujian ini mengonfirmasi bahwa konfigurasi SMTP PHPMailer pada website NNACOSA telah terhubung dengan benar dan siap mengirimkan notifikasi status pesanan kepada pelanggan.</p><p>Waktu pengujian: 2026-10-16 21:33:31 WIB</p>
+
+
+--b1=_UslWVrTzRNGUDkFxgLVtOQgtXnV5fY4rrAHfDKymFQ--
+

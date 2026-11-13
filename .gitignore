@@ -1,0 +1,17 @@
+# Environment variables
+.env
+.env.backup
+.env.local
+
+# Composer
+vendor/
+composer.phar
+
+# Logs & temp files
+*.log
+logs/
+app/logs/
+scratch/
+
+# Ad-hoc root test scripts
+/test_*.php

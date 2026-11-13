@@ -1,0 +1,813 @@
+/* ==========================================================================
+   NNACOSA JEWELRY BOUTIQUE — DESIGN SYSTEM & THEME TOKENS
+   Inspired by Hostinger Adelina Template: Soft Luxury, Editorial & Minimalist
+   ========================================================================== */
+
+:root {
+    /* --- Core Color Tokens (Adelina Soft Luxury Palette) --- */
+    --color-background: #FFFDF9;     /* Warm Ivory */
+    --color-surface: #FFFFFF;        /* Pure White Surface */
+    --color-surface-soft: #F8F2EB;   /* Cream Background */
+    --color-border: #EDE1D5;         /* Soft Beige Divider */
+    --color-border-subtle: #F4ECE4;  /* Ultra-delicate border */
+    --color-primary: #4B3B32;        /* Deep Brown (Primary Brand) */
+    --color-primary-hover: #302722;  /* Dark Espresso Hover */
+    --color-accent: #D8BFA3;         /* Champagne Gold */
+    --color-accent-hover: #C9AE90;   /* Muted Champagne */
+    --color-accent-soft: #F4EBE2;    /* Soft Champagne Tint */
+    --color-taupe: #A58C78;          /* Warm Taupe */
+    --color-taupe-light: #C2B0A1;    /* Light Taupe */
+
+    /* Typography Colors */
+    --color-text: #302722;           /* Primary Text (Deep Espresso) */
+    --color-text-secondary: #786B62; /* Secondary Editorial Text */
+    --color-text-muted: #9E8E82;     /* Muted / Caption Text */
+    --color-text-inverse: #FFFFFF;   /* Text on Dark / Primary Buttons */
+
+    /* Semantic Status Colors (High Contrast & Accessible) */
+    --color-success: #477A5B;        /* Muted Forest Green */
+    --color-success-soft: #E8F2EC;
+    --color-warning: #A66A20;        /* Warm Amber Gold */
+    --color-warning-soft: #FAF2E6;
+    --color-danger: #B54747;         /* Elegant Rosewood Crimson */
+    --color-danger-soft: #FAECEC;
+    --color-info: #526D82;           /* Slate Blue */
+    --color-info-soft: #EEF3F7;
+
+    /* Shape & Elevation Tokens */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    --radius-pill: 50px;
+    --shadow-soft: 0 4px 18px rgba(75, 59, 50, 0.06);
+    --shadow-hover: 0 12px 28px rgba(75, 59, 50, 0.12);
+    --shadow-elevated: 0 18px 40px rgba(75, 59, 50, 0.15);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* --- Legacy Variable Aliases (100% Backwards Compatibility) --- */
+    --primary: var(--color-primary);
+    --secondary: var(--color-accent-soft);
+    --accent: var(--color-accent);
+    --bg-color: var(--color-background);
+    --surface: var(--color-surface);
+    --success: var(--color-success);
+    --text-main: var(--color-text);
+    --text-muted: var(--color-text-secondary);
+    --border-radius: var(--radius-lg);
+}
+
+/* ==========================================================================
+   DARK MODE TOKENS (Cohesive Soft Luxury Dark Theme)
+   ========================================================================== */
+[data-theme="dark"] {
+    --color-background: #191614;     /* Deep Warm Espresso Charcoal */
+    --color-surface: #24201D;        /* Warm Dark Surface */
+    --color-surface-soft: #2D2824;   /* Soft Dark Charcoal */
+    --color-border: #3D352F;         /* Subtle Warm Dark Border */
+    --color-border-subtle: #302A25;
+    --color-primary: #D8BFA3;        /* Champagne Gold Highlight */
+    --color-primary-hover: #E8D5C0;  /* Pale Champagne */
+    --color-accent: #C7AA8E;         /* Rich Warm Champagne */
+    --color-accent-hover: #D8BFA3;
+    --color-accent-soft: #352D26;    /* Dark Champagne Tint */
+    --color-taupe: #B59E8B;
+    --color-taupe-light: #8E7D70;
+
+    /* Dark Mode Typography */
+    --color-text: #F5EFEB;           /* Soft Ivory Text */
+    --color-text-secondary: #B8ACA3; /* Gentle Beige Text */
+    --color-text-muted: #8E8279;     /* Soft Taupe Muted */
+    --color-text-inverse: #191614;   /* Text on Champagne Buttons */
+
+    /* Semantic Colors in Dark Mode */
+    --color-success: #5CA377;
+    --color-success-soft: #1E2D24;
+    --color-warning: #C98532;
+    --color-warning-soft: #302417;
+    --color-danger: #D65C5C;
+    --color-danger-soft: #331C1C;
+    --color-info: #6C8CA5;
+    --color-info-soft: #1B2630;
+
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.65);
+    --shadow-elevated: 0 20px 45px rgba(0, 0, 0, 0.8);
+
+    /* Legacy Variable Aliases in Dark Mode */
+    --primary: var(--color-primary);
+    --secondary: var(--color-accent-soft);
+    --accent: var(--color-accent);
+    --bg-color: var(--color-background);
+    --surface: var(--color-surface);
+    --text-main: var(--color-text);
+    --text-muted: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   GLOBAL BASE & TYPOGRAPHY
+   ========================================================================== */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Luxury Editorial Headings */
+h1, h2, h3, .editorial-heading {
+    font-family: 'Cormorant Garamond', 'Outfit', Georgia, serif;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+}
+
+h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+
+/* Brand Display Serif */
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 1.5px !important;
+}
+
+.editorial-serif {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Utility Overrides */
+.text-primary { color: var(--color-primary) !important; }
+.text-secondary { color: var(--color-text-secondary) !important; }
+.text-muted { color: var(--color-text-muted) !important; }
+.text-accent { color: var(--color-accent) !important; }
+.bg-light { background-color: var(--color-surface-soft) !important; }
+.bg-white { background-color: var(--color-surface) !important; }
+
+/* Subtle Borders */
+.border-subtle { border-color: var(--color-border) !important; }
+hr {
+    border-color: var(--color-border);
+    opacity: 0.6;
+}
+
+/* ==========================================================================
+   HEADER & NAVBAR (Warm Glassmorphism & Editorial Touch)
+   ========================================================================== */
+.navbar-glass {
+    background: rgba(255, 253, 249, 0.88) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .navbar-glass {
+    background: rgba(25, 22, 20, 0.88) !important;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.navbar .nav-link {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+    padding: 8px 14px;
+    transition: var(--transition);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--color-taupe);
+}
+
+[data-theme="dark"] .navbar .nav-link:hover {
+    color: var(--color-accent);
+}
+
+.navbar .badge.bg-danger {
+    background-color: var(--color-danger) !important;
+}
+
+/* ==========================================================================
+   BUTTONS (Soft Luxury Jewelry Aesthetic)
+   ========================================================================== */
+/* Primary Action Button (Deep Brown / Champagne Dark) */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 14px rgba(75, 59, 50, 0.15);
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-text-inverse);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(75, 59, 50, 0.22);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+[data-theme="dark"] .btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    box-shadow: 0 4px 14px rgba(216, 191, 163, 0.2);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-text-inverse);
+}
+
+/* Soft Accent Button (Champagne / Soft Beige) */
+.btn-primary-soft {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border: 1px solid rgba(75, 59, 50, 0.08);
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+}
+
+.btn-primary-soft:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+[data-theme="dark"] .btn-primary-soft {
+    background-color: var(--color-accent-soft);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+}
+
+[data-theme="dark"] .btn-primary-soft:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+/* Secondary & Outline Buttons */
+.btn-outline-primary {
+    border: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    transition: var(--transition);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-outline-dark {
+    border: 1.5px solid var(--color-border);
+    color: var(--color-text);
+    background: transparent;
+    font-weight: 500;
+    border-radius: var(--radius-pill);
+    transition: var(--transition);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--color-surface-soft);
+    border-color: var(--color-taupe);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.btn-outline-secondary {
+    border-color: var(--color-border);
+    color: var(--color-text-secondary);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--color-surface-soft);
+    border-color: var(--color-taupe);
+    color: var(--color-text);
+}
+
+.btn-dark {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    transition: var(--transition);
+}
+
+.btn-dark:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: var(--color-text-inverse);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ==========================================================================
+   CARDS & CONTAINERS (Minimalist Soft Luxury)
+   ========================================================================== */
+.card-soft {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card-soft:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--color-accent);
+}
+
+.card {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-border);
+    transition: var(--transition);
+}
+
+/* ==========================================================================
+   BADGES (Subtle, Elegant, High-Legibility)
+   ========================================================================== */
+.badge-soft {
+    background-color: var(--color-surface-soft);
+    color: var(--color-primary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 6px 14px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+[data-theme="dark"] .badge-soft {
+    background-color: var(--color-surface-soft);
+    color: var(--color-accent);
+    border-color: var(--color-border);
+}
+
+/* Semantic Badges */
+.badge.bg-success {
+    background-color: var(--color-success) !important;
+    color: #FFFFFF !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--color-warning) !important;
+    color: #FFFFFF !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--color-danger) !important;
+    color: #FFFFFF !important;
+}
+
+.badge.bg-info {
+    background-color: var(--color-info) !important;
+    color: #FFFFFF !important;
+}
+
+.badge.bg-secondary {
+    background-color: var(--color-taupe) !important;
+    color: #FFFFFF !important;
+}
+
+/* Subtle Semantic Badges */
+.badge-success-subtle {
+    background-color: var(--color-success-soft);
+    color: var(--color-success);
+    border: 1px solid rgba(71, 122, 91, 0.2);
+}
+
+.badge-warning-subtle {
+    background-color: var(--color-warning-soft);
+    color: var(--color-warning);
+    border: 1px solid rgba(166, 106, 32, 0.2);
+}
+
+.badge-danger-subtle {
+    background-color: var(--color-danger-soft);
+    color: var(--color-danger);
+    border: 1px solid rgba(181, 71, 71, 0.2);
+}
+
+.badge-info-subtle {
+    background-color: var(--color-info-soft);
+    color: var(--color-info);
+    border: 1px solid rgba(82, 109, 130, 0.2);
+}
+
+/* ==========================================================================
+   PRODUCT DISPLAY & HOVER ACTIONS
+   ========================================================================== */
+.product-img-wrapper {
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background-color: var(--color-surface-soft);
+}
+
+.product-img-wrapper img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-soft:hover .product-img-wrapper img {
+    transform: scale(1.06);
+}
+
+.quick-action-btns {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+    opacity: 0;
+    z-index: 5;
+}
+
+.card-soft:hover .quick-action-btns {
+    bottom: 16px;
+    opacity: 1;
+}
+
+.btn-wishlist {
+    background-color: var(--color-surface) !important;
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+}
+
+.btn-wishlist:hover {
+    background-color: var(--color-surface-soft) !important;
+    transform: scale(1.08);
+}
+
+.btn-wishlist.active i {
+    color: var(--color-danger) !important;
+}
+
+/* ==========================================================================
+   FORM CONTROLS & INPUTS
+   ========================================================================== */
+.form-control,
+.form-select {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    font-size: 15px;
+    transition: var(--transition);
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.2rem rgba(216, 191, 163, 0.35);
+}
+
+.form-control::placeholder {
+    color: var(--color-text-muted);
+    opacity: 0.7;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+    background-color: var(--color-surface-soft);
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+    background-color: var(--color-surface);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.2rem rgba(216, 191, 163, 0.25);
+}
+
+.input-group-text {
+    background-color: var(--color-surface-soft);
+    color: var(--color-text-secondary);
+    border-color: var(--color-border);
+}
+
+/* ==========================================================================
+   TABLES & DASHBOARD DATA (Clean Editorial Layout)
+   ========================================================================== */
+.table {
+    color: var(--color-text);
+    border-color: var(--color-border);
+}
+
+.table > :not(caption) > * > * {
+    background-color: transparent;
+    border-bottom: 1px solid var(--color-border);
+    padding: 14px 16px;
+    vertical-align: middle;
+}
+
+.table-light,
+thead.table-light,
+thead.table-light th {
+    background-color: var(--color-surface-soft) !important;
+    color: var(--color-primary) !important;
+    border-color: var(--color-border) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+}
+
+[data-theme="dark"] .table-light,
+[data-theme="dark"] thead.table-light,
+[data-theme="dark"] thead.table-light th {
+    background-color: var(--color-surface-soft) !important;
+    color: var(--color-accent) !important;
+    border-color: var(--color-border) !important;
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: rgba(216, 191, 163, 0.08) !important;
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .table-hover > tbody > tr:hover > * {
+    background-color: rgba(216, 191, 163, 0.05) !important;
+}
+
+/* ==========================================================================
+   ALERTS & NOTIFICATIONS
+   ========================================================================== */
+.alert {
+    border-radius: var(--radius-md);
+    border: none;
+    font-size: 14.5px;
+}
+
+.alert-success {
+    background-color: var(--color-success-soft);
+    color: var(--color-success);
+    border: 1px solid rgba(71, 122, 91, 0.25);
+}
+
+.alert-warning {
+    background-color: var(--color-warning-soft);
+    color: var(--color-warning);
+    border: 1px solid rgba(166, 106, 32, 0.25);
+}
+
+.alert-danger {
+    background-color: var(--color-danger-soft);
+    color: var(--color-danger);
+    border: 1px solid rgba(181, 71, 71, 0.25);
+}
+
+.alert-info {
+    background-color: var(--color-info-soft);
+    color: var(--color-info);
+    border: 1px solid rgba(82, 109, 130, 0.25);
+}
+
+/* ==========================================================================
+   DROPDOWNS & MODALS
+   ========================================================================== */
+.dropdown-menu {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-hover);
+    padding: 8px 0;
+}
+
+.dropdown-item {
+    color: var(--color-text);
+    padding: 8px 18px;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--color-surface-soft);
+    color: var(--color-primary);
+}
+
+.dropdown-divider {
+    border-color: var(--color-border);
+    opacity: 0.6;
+}
+
+.modal-content {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-elevated);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   AI CHATBOT WIDGET STYLING
+   ========================================================================== */
+#aiChatbotBtn {
+    background: var(--color-primary) !important;
+    color: var(--color-accent) !important;
+    box-shadow: 0 6px 24px rgba(75, 59, 50, 0.22) !important;
+    border: 2px solid var(--color-accent);
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+#aiChatbotBtn:hover {
+    transform: scale(1.08) !important;
+    box-shadow: 0 10px 30px rgba(75, 59, 50, 0.32) !important;
+}
+
+[data-theme="dark"] #aiChatbotBtn {
+    background: var(--color-surface-soft) !important;
+    color: var(--color-accent) !important;
+    border-color: var(--color-accent);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+#aiChatbotWindow {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-elevated) !important;
+}
+
+#aiChatbotWindow .card-header {
+    background: var(--color-primary) !important;
+    color: #FFFFFF !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] #aiChatbotWindow .card-header {
+    background: var(--color-surface-soft) !important;
+    border-bottom: 1px solid var(--color-border) !important;
+}
+
+#chatboxBody {
+    background: var(--color-surface-soft) !important;
+}
+
+/* Chat Bubbles */
+.chat-bubble-user {
+    background: var(--color-accent) !important;
+    color: var(--color-primary) !important;
+    font-weight: 500;
+}
+
+.chat-bubble-bot {
+    background: var(--color-surface) !important;
+    color: var(--color-text) !important;
+    border: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   BREADCRUMBS & PAGINATION
+   ========================================================================== */
+.breadcrumb-item a {
+    color: var(--color-taupe);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb-item a:hover {
+    color: var(--color-primary);
+}
+
+.breadcrumb-item.active {
+    color: var(--color-text-secondary);
+}
+
+.page-link {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.page-link:hover {
+    background-color: var(--color-surface-soft);
+    border-color: var(--color-taupe);
+    color: var(--color-primary);
+}
+
+.page-item.active .page-link {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+/* ==========================================================================
+   CATEGORY BUBBLE & LUXURY MICRO-ANIMATIONS
+   ========================================================================== */
+.category-bubble {
+    transition: var(--transition);
+}
+
+.category-bubble div {
+    background: var(--color-surface) !important;
+    border: 1px solid var(--color-border) !important;
+    color: var(--color-text) !important;
+    transition: var(--transition);
+}
+
+.category-bubble:hover div {
+    background: var(--color-primary) !important;
+    color: var(--color-accent) !important;
+    transform: translateY(-4px) scale(1.05);
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 10px 24px rgba(75, 59, 50, 0.15) !important;
+}
+
+.category-bubble:hover div i {
+    color: var(--color-accent) !important;
+}
+
+[data-theme="dark"] .category-bubble:hover div {
+    background: var(--color-accent) !important;
+    color: var(--color-primary) !important;
+    border-color: var(--color-accent) !important;
+}
+
+[data-theme="dark"] .category-bubble:hover div i {
+    color: var(--color-primary) !important;
+}
+
+/* Subtle Hover Lift */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+/* Nav Pills Styling */
+.nav-pills .nav-link {
+    color: var(--color-text-secondary);
+    transition: var(--transition);
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: var(--color-primary) !important;
+    color: var(--color-text-inverse) !important;
+}
+
+[data-theme="dark"] .nav-pills .nav-link.active {
+    background-color: var(--color-accent) !important;
+    color: var(--color-primary) !important;
+}
+
+.border-top-dashed,
+.border-bottom-dashed {
+    border-style: dashed !important;
+    border-color: var(--color-border) !important;
+}
+
