@@ -12,6 +12,10 @@ composer.phar
 logs/
 app/logs/
 scratch/
+~$*
+
+# Local test mail inbox
+public/mail_inbox/
 
 # Ad-hoc root test scripts
 /test_*.php
