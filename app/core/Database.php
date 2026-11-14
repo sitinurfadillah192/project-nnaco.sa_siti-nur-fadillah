@@ -1,5 +1,6 @@
 <?php
 class Database {
+    private static $sharedDbh = null;
     private $host = DB_HOST;
     private $user = DB_USER;
     private $pass = DB_PASS;
@@ -9,14 +10,21 @@ class Database {
     private $stmt;
 
     public function __construct() {
+        if (self::$sharedDbh !== null) {
+            $this->dbh = self::$sharedDbh;
+            return;
+        }
+
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
         $option = [
-            PDO::ATTR_PERSISTENT => true,
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            PDO::ATTR_PERSISTENT => false,
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_TIMEOUT => 5
         ];
 
         try {
             $this->dbh = new PDO($dsn, $this->user, $this->pass, $option);
+            self::$sharedDbh = $this->dbh;
         } catch(PDOException $e) {
             // Check for Unknown Database error (1049)
             if ($e->getCode() == 1049 || strpos($e->getMessage(), '1049') !== false) {

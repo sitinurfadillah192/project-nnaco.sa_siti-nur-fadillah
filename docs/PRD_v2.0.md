@@ -1,4 +1,4 @@
-# Product Requirements Document (PRD) v2.0
+﻿# Product Requirements Document (PRD) v2.0
 **Project Name:** NNACOSA (Sistem E-Commerce Perhiasan & Aksesoris Eksklusif Berbasis PHP Native MVC + Multi-Provider AI)  
 **Document Version:** 2.0 (Updated & 100% Aligned with Implemented System)  
 **Tanggal Diperbarui:** 25 Oktober 2026  
@@ -571,3 +571,4 @@ Sistem dilengkapi dengan **Suite Pengujian Otomatis (*Automated Test Suites*)** 
 
 ---
 *Dokumen PRD v2.0 ini adalah acuan spesifikasi resmi yang merepresentasikan 100% arsitektur, basis data, dan fitur yang aktif pada platform NNACOSA.*
+

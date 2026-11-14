@@ -4,7 +4,7 @@ if (!function_exists('env')) {
 }
 
 define('BASEURL', 'http://localhost/nnco_sa/public');
-define('DB_HOST', 'localhost');
+define('DB_HOST', env('DB_HOST', '127.0.0.1'));
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'nnaco_sa');

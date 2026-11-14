@@ -376,6 +376,11 @@ Gunakan bahasa Indonesia yang profesional, ramah, bersahabat, dan jelas.";
             exit;
         }
 
+        // Release PHP session lock before outbound network call to keep the website fast and responsive
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_write_close();
+        }
+
         $response = $this->ai->chatCompletion($systemPrompt, $userMessage);
 
         $modelId = method_exists($this->ai, 'getModelId') ? $this->ai->getModelId() : null;

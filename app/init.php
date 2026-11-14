@@ -1,4 +1,6 @@
 <?php
+require_once 'helpers/env.php';
+require_once 'config/config.php';
 require_once 'core/App.php';
 require_once 'core/Controller.php';
 require_once 'core/Database.php';
@@ -11,8 +13,6 @@ require_once 'middleware/AuthMiddleware.php';
 require_once 'middleware/RoleMiddleware.php';
 require_once 'core/FonnteService.php';
 require_once 'core/OtpService.php';
-require_once 'helpers/env.php';
-require_once 'config/config.php';
 require_once 'repositories/OrderNotificationRepository.php';
 require_once 'services/OrderNotificationService.php';
 
