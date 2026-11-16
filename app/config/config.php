@@ -3,11 +3,21 @@ if (!function_exists('env')) {
     require_once dirname(__DIR__) . '/helpers/env.php';
 }
 
-define('BASEURL', 'http://localhost/nnco_sa/public');
-define('DB_HOST', env('DB_HOST', '127.0.0.1'));
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'nnaco_sa');
+if (!defined('BASEURL')) {
+    define('BASEURL', env('APP_URL', 'http://localhost/nnco_sa/public'));
+}
+if (!defined('DB_HOST')) {
+    define('DB_HOST', env('DB_HOST', '127.0.0.1'));
+}
+if (!defined('DB_USER')) {
+    define('DB_USER', env('DB_USER', 'root'));
+}
+if (!defined('DB_PASS')) {
+    define('DB_PASS', env('DB_PASS', ''));
+}
+if (!defined('DB_NAME')) {
+    define('DB_NAME', env('DB_NAME', 'nnaco_sa'));
+}
 
 // Timezone Configuration
 date_default_timezone_set('Asia/Jakarta');

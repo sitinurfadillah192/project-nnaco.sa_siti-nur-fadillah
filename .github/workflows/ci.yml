@@ -1,0 +1,57 @@
+name: NNACOSA CI/CD Automated Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Build, Lint & Automated Unit Testing
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: nnaco_sa
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
+
+    steps:
+      - name: 1. Checkout Repository Source Code
+        uses: actions/checkout@v4
+
+      - name: 2. Setup PHP 8.2 Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo, pdo_mysql, curl, openssl, json
+          coverage: none
+
+      - name: 3. PHP Syntax Verification (Linting Audit)
+        run: |
+          echo "Memeriksa keabsahan sintaks seluruh berkas PHP..."
+          find app public tests -type f -name "*.php" -exec php -l {} +
+
+      - name: 4. Setup CI Environment Variables (.env)
+        run: |
+          cp .env.example .env
+          sed -i 's/DB_HOST=127.0.0.1/DB_HOST=127.0.0.1/' .env
+          sed -i 's/DB_USER=root/DB_USER=root/' .env
+          sed -i 's/DB_PASS=/DB_PASS=root/' .env
+          sed -i 's/DB_NAME=nnaco_sa/DB_NAME=nnaco_sa/' .env
+          sed -i 's/your_64_character_hex_key_here/85dd911c3598b089229232ee5c3cd34e72dd9bf530e0872b9462fab8f188bd37/' .env
+
+      - name: 5. Import Database Schema & Seed Data
+        run: |
+          echo "Mengimpor skema basis data ke MySQL Service Container..."
+          mysql -h 127.0.0.1 -P 3306 -u root -proot nnaco_sa < database/nnaco_sa.sql
+
+      - name: 6. Execute Master Automated Test Suites
+        run: |
+          php tests/run_all_tests.php
