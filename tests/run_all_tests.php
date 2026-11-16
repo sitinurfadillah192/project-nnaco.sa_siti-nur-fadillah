@@ -46,18 +46,18 @@ foreach ($testFiles as $file => $description) {
     $output = [];
     $returnVar = 0;
     
-    // Jalankan setiap suite pengujian di proses terisolasi
-    exec("\"{$phpBinary}\" \"{$filePath}\"", $output, $returnVar);
+    // Jalankan setiap suite pengujian di proses terisolasi dengan penangkapan STDERR
+    exec("\"{$phpBinary}\" \"{$filePath}\" 2>&1", $output, $returnVar);
 
-    // Tampilkan cuplikan hasil jika ada error
+    // Tampilkan hasil pengujian
     if ($returnVar === 0) {
         echo "    Status: [PASSED] (Exit Code: 0)\n\n";
         $results[$file] = ['status' => 'PASSED', 'description' => $description, 'code' => 0];
         $passedSuites++;
     } else {
         echo "    Status: [FAILED] (Exit Code: {$returnVar})\n";
-        echo "    Output Cuplikan:\n";
-        echo "    " . implode("\n    ", array_slice($output, -10)) . "\n\n";
+        echo "    Output Log:\n";
+        echo "    " . implode("\n    ", $output) . "\n\n";
         $results[$file] = ['status' => 'FAILED', 'description' => $description, 'code' => $returnVar];
         $failedSuites++;
     }

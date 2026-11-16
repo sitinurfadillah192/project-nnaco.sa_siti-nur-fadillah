@@ -4,13 +4,13 @@
  * Covers all 13 required test cases without sending real WhatsApp messages.
  */
 
-require_once 'C:/xampp/htdocs/nnco_sa/app/config/config.php';
-require_once 'C:/xampp/htdocs/nnco_sa/app/core/Database.php';
-require_once 'C:/xampp/htdocs/nnco_sa/app/core/Model.php';
-require_once 'C:/xampp/htdocs/nnco_sa/app/core/Security.php';
-require_once 'C:/xampp/htdocs/nnco_sa/app/core/FonnteService.php';
-require_once 'C:/xampp/htdocs/nnco_sa/app/core/OtpService.php';
-require_once 'C:/xampp/htdocs/nnco_sa/app/models/User.php';
+require_once __DIR__ . '/../app/config/config.php';
+require_once __DIR__ . '/../app/core/Database.php';
+require_once __DIR__ . '/../app/core/Model.php';
+require_once __DIR__ . '/../app/core/Security.php';
+require_once __DIR__ . '/../app/core/FonnteService.php';
+require_once __DIR__ . '/../app/core/OtpService.php';
+require_once __DIR__ . '/../app/models/User.php';
 
 if (session_status() === PHP_SESSION_NONE) {
     @session_start();
