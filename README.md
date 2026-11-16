@@ -26,16 +26,16 @@
 
 *Silakan lengkapi identitas anggota kelompok di bawah ini:*
 
-* **Nomor Kelompok:** [Nomor Kelompok, contoh: Kelompok 05]
-* **Kelas / Program Studi:** [Kelas / Jurusan, contoh: TI-3A / Teknik Informatika]
-* **Dosen Pengampu:** [Nama Dosen Pengampu Mata Kuliah RPL]
+* **Nama Kelompok:** Sumber City
+* **Kelas / Program Studi:** TI-1C / Teknik Informatika
+* **Dosen Pengampu:** Yudhistira Arie Wijaya, M.Kom.
 
 | No | Nama Lengkap | NIM | Peran / Kontribusi Utama |
 |:--:|:-------------|:---:|:-------------------------|
-| 1. | **Siti Nur Fadillah** *(Koordinator)* | `[NIM Anggota 1]` | Frontend Styling (Adelina Luxury), Controller Logic, Git Management |
-| 2. | `[Nama Anggota 2]` | `[NIM Anggota 2]` | Backend Model, Database Schema, Testing |
-| 3. | `[Nama Anggota 3]` | `[NIM Anggota 3]` | Integrasi AI Chatbot, Dokumentasi & PRD |
-| 4. | `[Nama Anggota 4]` *(jika ada)* | `[NIM Anggota 4]` | Integrasi WhatsApp Gateway, UI Testing |
+| 1. | **Nizar Firmansyah** *(Koordinator)* | 41257147 | Frontend Styling (Adelina Luxury), Controller Logic, Git Management |
+| 2. | **Siti Nur Fadillah** | 41257241 | Backend Model, Database Schema, Testing |
+| 3. | **Talita Nabila** | 41257242 | Integrasi AI Chatbot, Dokumentasi & PRD |
+| 4. | **Sulistina Juliyanti** | 41257161 | Integrasi WhatsApp Gateway, UI Testing |
 
 ---
 
