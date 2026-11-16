@@ -123,10 +123,10 @@ class ChatHistory extends Model {
         // Group by conversation_id (fallback to id if conversation_id is null)
         $query = "SELECT 
                     COALESCE(ch.conversation_id, CONCAT('conv_legacy_', ch.id)) AS conversation_id,
-                    ch.user_id,
-                    u.name AS customer_name,
-                    u.email AS customer_email,
-                    u.phone AS customer_phone,
+                    MAX(ch.user_id) AS user_id,
+                    MAX(u.name) AS customer_name,
+                    MAX(u.email) AS customer_email,
+                    MAX(u.phone) AS customer_phone,
                     COUNT(ch.id) AS total_messages,
                     MIN(ch.created_at) AS started_at,
                     MAX(ch.created_at) AS last_message_at,
@@ -140,9 +140,9 @@ class ChatHistory extends Model {
                          WHERE (ch3.conversation_id = ch.conversation_id OR (ch.conversation_id IS NULL AND ch3.id = ch.id))
                          ORDER BY ch3.id DESC LIMIT 1), 1, 120
                     ) AS last_bot_response,
-                    ch.ip_address,
-                    ch.model_id,
-                    ch.status
+                    MAX(ch.ip_address) AS ip_address,
+                    MAX(ch.model_id) AS model_id,
+                    MAX(ch.status) AS status
                   FROM " . $this->table . " ch 
                   LEFT JOIN users u ON ch.user_id = u.id 
                   WHERE " . $whereSql . " 
@@ -253,16 +253,16 @@ class ChatHistory extends Model {
         } else {
             $query = "SELECT 
                         ch.conversation_id,
-                        ch.user_id,
-                        u.name AS customer_name,
-                        u.email AS customer_email,
-                        u.phone AS customer_phone,
+                        MAX(ch.user_id) AS user_id,
+                        MAX(u.name) AS customer_name,
+                        MAX(u.email) AS customer_email,
+                        MAX(u.phone) AS customer_phone,
                         COUNT(ch.id) AS total_messages,
                         MIN(ch.created_at) AS started_at,
                         MAX(ch.created_at) AS last_message_at,
-                        ch.ip_address,
-                        ch.model_id,
-                        ch.status
+                        MAX(ch.ip_address) AS ip_address,
+                        MAX(ch.model_id) AS model_id,
+                        MAX(ch.status) AS status
                       FROM " . $this->table . " ch 
                       LEFT JOIN users u ON ch.user_id = u.id 
                       WHERE ch.conversation_id = :conv_id 
