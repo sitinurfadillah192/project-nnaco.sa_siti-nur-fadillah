@@ -4,12 +4,7 @@
  * Covers all 13 required test cases without sending real WhatsApp messages.
  */
 
-require_once __DIR__ . '/../app/config/config.php';
-require_once __DIR__ . '/../app/core/Database.php';
-require_once __DIR__ . '/../app/core/Model.php';
-require_once __DIR__ . '/../app/core/Security.php';
-require_once __DIR__ . '/../app/core/FonnteService.php';
-require_once __DIR__ . '/../app/core/OtpService.php';
+require_once __DIR__ . '/../app/init.php';
 require_once __DIR__ . '/../app/models/User.php';
 
 if (session_status() === PHP_SESSION_NONE) {

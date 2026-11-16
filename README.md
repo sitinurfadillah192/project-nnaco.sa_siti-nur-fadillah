@@ -1,5 +1,7 @@
 # NNACOSA — Platform E-Commerce Butik Perhiasan & Aksesoris Mewah
 
+[![NNACOSA CI/CD Pipeline](https://github.com/sitinurfadillah192/project-nnaco.sa_siti-nur-fadillah/actions/workflows/ci.yml/badge.svg)](https://github.com/sitinurfadillah192/project-nnaco.sa_siti-nur-fadillah/actions/workflows/ci.yml)
+
 > **Tugas Akhir Mata Kuliah:** Rekayasa Perangkat Lunak (RPL)  
 > **Arsitektur Sistem:** PHP Native Custom MVC, MySQL / MariaDB, Multi-Provider AI Engine, WhatsApp Gateway (Fonnte)  
 > **Desain Visual:** *Adelina Soft Luxury Palette* (Warm Ivory, Deep Brown, Champagne Gold)
@@ -292,46 +294,34 @@ Untuk mempermudah pengujian seluruh fitur oleh Dosen Penguji atau Asisten Labora
 
 ---
 
-## 9. Pengujian Otomatis (Automated Testing) & CI/CD Pipeline
+## 9. Pengujian Otomatis (Automated Testing)
 
-Proyek NNACOSA dilengkapi dengan rangkaian pengujian otomatis (*Automated Test Suites*) berbasis CLI dan integrasi pipa **CI/CD (Continuous Integration)** menggunakan **GitHub Actions**:
+Proyek NNACOSA dilengkapi dengan rangkaian pengujian otomatis (*Automated Test Suites*) dan integrasi **CI/CD GitHub Actions Pipeline** (`.github/workflows/ci.yml`) untuk memverifikasi logika bisnis, sintaksis, dan keamanan sistem secara kontinu pada setiap commit dan pull request.
 
-### 9.1. Menjalankan Seluruh Pengujian Sekaligus (Master Test Runner)
-Cukup jalankan satu perintah berikut di terminal:
+Jalankan perintah Master Test Runner berikut di terminal Anda:
+
 ```bash
-php tests/run_all_tests.php
+# Menjalankan seluruh pengujian (Linter Sintaks, Unit Test Keamanan, dan Fitur Bisnis)
+php tests/run_tests.php
 ```
 
-### 9.2. Menjalankan Pengujian Spesifik per Modul
+Atau jalankan modul pengujian spesifik secara individual:
+
 ```bash
-# 1. Pengujian Modul Ulasan & Rating Pelanggan (13 Unit Test)
+# 1. Pengujian Unit Core Security & Utilities (CSRF, XSS, SSRF, AES-256-GCM)
+php tests/Unit/CoreSecurityTest.php
+
+# 2. Pengujian Modul Ulasan & Rating Pelanggan (13 Unit Test)
 php tests/test_customer_reviews.php
 
-# 2. Pengujian Alur Registrasi & WhatsApp OTP (17 Unit Test)
+# 3. Pengujian Alur Registrasi & WhatsApp OTP (17 Unit Test)
 php tests/test_register_whatsapp_otp.php
 
-# 3. Pengujian Enkripsi Secret Vault AES-256-GCM & System Settings (38 Unit Test)
+# 4. Pengujian Enkripsi Secret Vault AES-256-GCM & System Settings (38 Unit Test)
 php tests/test_system_settings.php
-
-# 4. Pengujian Lifecycle Autentikasi WhatsApp & Atomic OTP Guard (30 Unit Test)
-php tests/test_whatsapp_auth.php
-
-# 5. Pengujian Manajemen Pengguna & RBAC (16 Unit Test)
-php tests/test_user_management.php
-
-# 6. Pengujian Riwayat Chatbot & Audit Log (24 Unit Test)
-php tests/test_chatbot_history.php
 ```
 
-**Status Pengujian Terkini:** `ALL 10 TEST SUITES PASSED (0 FAILED) — 100% SUCCESS`.
-
-### 9.3. Integrasi GitHub Actions (CI/CD)
-Pipa CI/CD dikonfigurasi pada [.github/workflows/ci.yml](.github/workflows/ci.yml). Setiap kali ada perintah `push` atau `pull request` ke branch `main`, GitHub Actions secara otomatis:
-1. Menginisialisasi runner Ubuntu dengan runtime **PHP 8.2** beserta ekstensi `pdo_mysql`, `curl`, `openssl`, `mbstring`.
-2. Menjalankan **MySQL 8.0 Service Container** terisolasi dan mengimpor basis data `database/nnaco_sa.sql`.
-3. Memeriksa keabsahan sintaks seluruh berkas PHP (*PHP Syntax Linting Audit*).
-4. Menjalankan seluruh pengujian otomatis melalui `php tests/run_all_tests.php`.
-5. Memberikan tanda centang hijau (*Success*) sebagai bukti kelayakan perangkat lunak (*Software Quality Assurance*).
+**Status Pengujian Terkini:** `ALL UNIT TESTS PASSED (0 FAILED) — 100% SUCCESS`.
 
 ---
 

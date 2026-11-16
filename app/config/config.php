@@ -23,11 +23,11 @@ if (!defined('DB_NAME')) {
 date_default_timezone_set('Asia/Jakarta');
 
 // AI Engine Configuration (NVIDIA NIM / LLM)
-define('AI_API_KEY', env('AI_API_KEY', ''));
-define('OPENAI_API_KEY', env('OPENAI_API_KEY', ''));
+if (!defined('AI_API_KEY')) define('AI_API_KEY', env('AI_API_KEY', ''));
+if (!defined('OPENAI_API_KEY')) define('OPENAI_API_KEY', env('OPENAI_API_KEY', ''));
 // Fonnte WhatsApp API Configuration
-define('FONNTE_TOKEN', env('FONNTE_TOKEN', ''));
-define('FONNTE_API_URL', env('FONNTE_API_URL', 'https://api.fonnte.com/send'));
+if (!defined('FONNTE_TOKEN')) define('FONNTE_TOKEN', env('FONNTE_TOKEN', ''));
+if (!defined('FONNTE_API_URL')) define('FONNTE_API_URL', env('FONNTE_API_URL', 'https://api.fonnte.com/send'));
 
 // Master Encryption Key for Secrets (AES-256-GCM)
-define('SYSTEM_ENCRYPTION_KEY', env('SYSTEM_ENCRYPTION_KEY', '85dd911c3598b089229232ee5c3cd34e72dd9bf530e0872b9462fab8f188bd37'));
+if (!defined('SYSTEM_ENCRYPTION_KEY')) define('SYSTEM_ENCRYPTION_KEY', env('SYSTEM_ENCRYPTION_KEY', '85dd911c3598b089229232ee5c3cd34e72dd9bf530e0872b9462fab8f188bd37'));

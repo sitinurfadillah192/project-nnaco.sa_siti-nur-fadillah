@@ -3,10 +3,7 @@
  * Test Suite: Fitur Manajemen User (Admin & Owner)
  */
 
-define('BASEURL', 'http://localhost/nnco_sa/public');
-require_once __DIR__ . '/../app/config/config.php';
-require_once __DIR__ . '/../app/core/Database.php';
-require_once __DIR__ . '/../app/core/Model.php';
+require_once __DIR__ . '/../app/init.php';
 require_once __DIR__ . '/../app/models/User.php';
 
 echo "============================================================\n";

@@ -4,10 +4,7 @@
  * Tests all 17 criteria specified in section 12 of the prompt.
  */
 
-require_once __DIR__ . '/../app/config/config.php';
-require_once __DIR__ . '/../app/core/Database.php';
-require_once __DIR__ . '/../app/core/Model.php';
-require_once __DIR__ . '/../app/core/Security.php';
+require_once __DIR__ . '/../app/init.php';
 require_once __DIR__ . '/../app/models/ChatHistory.php';
 
 // Mock session if not already started

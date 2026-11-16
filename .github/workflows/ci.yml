@@ -1,62 +1,58 @@
-name: NNACOSA CI/CD Automated Pipeline
+name: NNACOSA CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
   test:
-    name: Build, Lint & Automated Unit Testing
+    name: Automated Unit Testing & Code Verification
     runs-on: ubuntu-latest
 
     services:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
           MYSQL_DATABASE: nnaco_sa
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=5
 
     steps:
-      - name: 1. Checkout Repository Source Code
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 2. Setup PHP 8.2 Environment
+      - name: 🐘 Setup PHP Environment
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: mbstring, pdo, pdo_mysql, curl, openssl, json
+          extensions: pdo, pdo_mysql, curl, mbstring, openssl, json
           coverage: none
 
-      - name: 3. PHP Syntax Verification (Linting Audit)
+      - name: ⚙️ Setup Environment Configuration
         run: |
-          echo "Memeriksa keabsahan sintaks seluruh berkas PHP..."
-          find app public tests -type f -name "*.php" -exec php -l {} +
+          cp .env.example .env
+          echo "Environment configuration successfully initialized from .env.example"
 
-      - name: 4. Setup CI Environment Variables (.env)
+      - name: 🗄️ Import Database Schema & Seed Data
         run: |
-          cat << 'EOF' > .env
-          APP_ENV=testing
-          APP_URL=http://localhost/nnco_sa/public
-          DB_HOST=127.0.0.1
-          DB_USER=root
-          DB_PASS=root
-          DB_NAME=nnaco_sa
-          SYSTEM_ENCRYPTION_KEY=85dd911c3598b089229232ee5c3cd34e72dd9bf530e0872b9462fab8f188bd37
-          AI_API_KEY=mock_key_for_ci
-          FONNTE_TOKEN=mock_token_for_ci
-          EOF
+          mysql -h 127.0.0.1 -u root nnaco_sa < database/nnaco_sa.sql
+          echo "Database schema successfully imported."
 
-      - name: 5. Import Database Schema & Seed Data
+      - name: 🔍 Verify Database Connection & Tables
         run: |
-          echo "Mengimpor skema basis data ke MySQL Service Container..."
-          mysql -h 127.0.0.1 -P 3306 -u root -proot nnaco_sa < database/nnaco_sa.sql
+          mysql -h 127.0.0.1 -u root -e "USE nnaco_sa; SHOW TABLES;"
 
-      - name: 6. Execute Master Automated Test Suites
+      - name: 🚀 Run CI/CD Automated Test Suite
+        env:
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASS: ""
+          DB_NAME: nnaco_sa
+          APP_ENV: testing
         run: |
-          php tests/run_all_tests.php
+          php tests/run_tests.php
