@@ -36,7 +36,7 @@
 | 2. | **Siti Nur Fadillah** | 41257241 | Backend Model, Database Schema, Testing |
 | 3. | **Talita Nabila** | 41257242 | Integrasi AI Chatbot, Dokumentasi & PRD |
 | 4. | **Sulistina Juliyanti** | 41257161 | Integrasi WhatsApp Gateway, UI Testing |
-| 5. | **[Nama Anggota 5]** | `[NIM Anggota 5]` | `[Peran / Kontribusi Utama]` |
+| 5. | **Syamsul Hadi** | 41257163 | Quality Assurance, UI/UX Design |
 
 ---
 
