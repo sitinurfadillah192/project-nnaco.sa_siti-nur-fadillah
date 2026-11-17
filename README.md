@@ -291,7 +291,6 @@ Untuk mempermudah pengujian seluruh fitur oleh Dosen Penguji atau Asisten Labora
 | **Pemilik (Owner)** | `owner@nnacosa.com` | `123456` | Pantau Laporan Keuangan, Omset, Statistik Toko, Audit Log |
 | **Pelanggan (Customer)** | `customer@gmail.com` | `123456` | Belanja, Checkout, Wishlist, Beri Ulasan Bintang, Riwayat Order |
 
-> *Catatan: Anda juga dapat mendaftarkan akun baru secara mandiri melalui menu **Daftar** di pojok kanan atas dengan verifikasi nomor WhatsApp.*
 
 ---
 
