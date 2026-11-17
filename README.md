@@ -193,9 +193,8 @@ NNACOSA mengintegrasikan modul kecerdasan buatan interaktif bernama **NNACO Assi
 Tonton video demonstrasi dan penjelasan teknis lengkap aplikasi NNACOSA melalui tautan berikut:
 
 * **Tautan YouTube:**  
-  [▶ Tonton Video Demonstrasi Proyek NNACOSA di YouTube](https://youtube.com/watch?v=PLACEHOLDER_VIDEO_LINK)  
-  *(Catatan: Ganti tautan di atas dengan link video demonstrasi YouTube kelompok Anda)*
-
+  [▶ Tonton Video Demonstrasi Proyek NNACOSA di YouTube](https://youtu.be/dw6JPwbfezc)  
+  
 ---
 
 ## 7. Panduan Instalasi & Menjalankan Sistem
